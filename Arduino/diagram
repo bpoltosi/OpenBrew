@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Bruno Poltosi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -37.8, "left": -87, "attrs": {} },
+    {
+      "type": "wokwi-hx711",
+      "id": "cell1",
+      "top": -122.2,
+      "left": 165.8,
+      "attrs": { "type": "5kg" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 198.4,
+      "left": 207.2,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "uno:GND.2", "lcd1:GND", "black", [ "v0" ] ],
+    [ "uno:A4", "lcd1:SDA", "green", [ "v0" ] ],
+    [ "uno:A5", "lcd1:SCL", "magenta", [ "v0" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "uno:GND.1", "cell1:GND", "black", [ "v0" ] ],
+    [ "uno:3", "cell1:DT", "green", [ "v-57.6", "h32.8" ] ],
+    [ "cell1:SCK", "uno:2", "magenta", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
