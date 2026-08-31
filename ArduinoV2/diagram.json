@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "author": "Bruno Poltosi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -37.8, "left": -87, "attrs": {} },
+    {
+      "type": "wokwi-hx711",
+      "id": "cell1",
+      "top": -160.6,
+      "left": 165.8,
+      "attrs": { "type": "5kg" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 217.6,
+      "left": -80.8,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 473.54,
+      "left": 19.43,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 390.2,
+      "left": -76.8,
+      "attrs": { "color": "green", "xray": "1", "key": "ArrowLeft", "bounce": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 371,
+      "left": 9.6,
+      "attrs": { "color": "green", "xray": "1", "key": "Enter" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 351.8,
+      "left": 96,
+      "attrs": { "color": "green", "xray": "1", "key": "ArrowRight" }
+    },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": 42.6, "left": 201.7, "attrs": {} }
+  ],
+  "connections": [
+    [ "uno:GND.2", "lcd1:GND", "black", [ "v57.5", "h-178.5", "v38.4" ] ],
+    [ "uno:A4", "lcd1:SDA", "green", [ "v47.9", "h-274.2", "v67" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h-28.8", "v-76.7", "h178.6" ] ],
+    [ "uno:GND.1", "cell1:GND", "black", [ "v-57.6", "h105.9", "v-47.7" ] ],
+    [ "cell1:SCK", "uno:2", "magenta", [ "h0" ] ],
+    [ "lcd1:SDA", "oled1:SDA", "green", [ "h-9.6", "v173", "h172.73" ] ],
+    [ "lcd1:SCL", "oled1:SCL", "magenta", [ "h-19.2", "v173.1", "h172.5" ] ],
+    [ "uno:5V", "oled1:VCC", "red", [ "v19.1", "h-207.4", "v288", "h201.45" ] ],
+    [ "uno:GND.2", "oled1:GND", "black", [ "v57.5", "h-226.5", "v259.2", "h201.6" ] ],
+    [ "btn1:1.l", "uno:7", "yellow", [ "h-96", "v-470.4", "h274.8" ] ],
+    [ "btn2:1.l", "uno:8", "yellow", [ "h-172.8", "v-441.6", "h249.2" ] ],
+    [ "uno:9", "btn3:1.l", "yellow", [ "v-19.2", "h-229.6", "v412.8" ] ],
+    [ "rtc1:5V", "uno:5V", "red", [ "h0" ] ],
+    [ "rtc1:GND", "uno:GND.1", "black", [ "h-19.2", "v-134.4", "h-163.5" ] ],
+    [ "uno:A4", "rtc1:SDA", "green", [ "v0" ] ],
+    [ "rtc1:SCL", "uno:A5", "magenta", [ "h0" ] ],
+    [ "lcd1:SCL", "uno:A5", "magenta", [ "h-48", "v-86.1", "h293.3" ] ],
+    [ "cell1:DT", "uno:3", "green", [ "h0" ] ],
+    [ "cell1:VCC", "uno:5V", "red", [ "h-9.6", "v163.2", "h-90.2" ] ],
+    [ "btn1:2.r", "uno:GND.3", "black", [ "h259.4", "v-249.4", "h-157.6" ] ],
+    [ "btn2:2.r", "uno:GND.3", "black", [ "h163.4", "v-220.6", "h-148" ] ],
+    [ "btn3:2.r", "uno:GND.3", "black", [ "h67.4", "v-172.6", "h-138.4" ] ]
+  ],
+  "dependencies": {}
+}
