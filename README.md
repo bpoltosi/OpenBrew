@@ -1,3 +1,4 @@
 # OpenBrew
 Projeto focado em desenvolver um sistema inteligente que combina Hardware + Software para auxiliar na extração/filtragem do Café.
+
 ![Logo do OpenBrew](LogoV1.png)
